@@ -1,219 +1,479 @@
-╔═══════════════════════════════════════════════════════════════════════════╗
-║                                                                                                       ║
-║                         RBT  - Setup & Usage Guide                                                    ║
-║                             @Rbt                                                                      ║
-║                                                                                                       ║
-╚═══════════════════════════════════════════════════════════════════════════╝
+# RBT Toolkit
 
+## Overview
 
-CONTENTS
-========
-• RbtNew.py          - Main application with all tools
-• setup.bat          - Dependency installation script
-• RUN_TOOL.bat       - Quick launcher for the tool
-• output/            - Folder where downloaded websites are saved
-• README.txt         - This file
+RBT Toolkit is a multi-purpose Python-based console utility designed for educational, testing, automation, and OSINT-oriented workflows. The project combines several modules into a single terminal interface, allowing users to perform network analysis, metadata inspection, basic automation tasks, encoding utilities, and public-information gathering from multiple sources.
 
+The toolkit is intended for:
 
-SYSTEM REQUIREMENTS
-===================
-✓ Every Linux distro
-✓ Windows 10/11 (64-bit recommended)
-✓ Python 3.8 or higher (https://www.python.org/downloads/)
-✓ 2GB+ free disk space
-✓ Internet connection
+* Educational and research environments
+* Cybersecurity learning labs
+* Local testing and debugging
+* Open-source intelligence (OSINT) workflows
+* Network and infrastructure analysis
+* Metadata inspection and automation experiments
 
-INSTALLATION
-=============
+This repository contains:
 
-1. FIRST TIME SETUP:
-   
-   a) Open setup.py by double-clicking it
-   b) Wait for Python packages to install
-   c) Press Enter when complete
-   
-   This will:
-   ✓ Create a virtual environment (venv/)
-   ✓ Install all required dependencies
-   ✓ Prepare the tool for use
+* `Rbt.py` → Main application
+* `setup.py` → Automatic environment and dependency installer
 
+---
 
-2. STARTING THE TOOL:
-   
-   After setup, you can start the tool in 2 ways:
-   
-   Method 1 (Easy):
-   - Double-click RUN_TOOL.bat
-   
-   Method 2 (Manual):
-   - Open Command Prompt/PowerShell
-   - Navigate to this folder
-   - Run: venv\Scripts\activate.bat
-   - Run: python RbtNew.py
+# Requirements
 
+## Supported Platforms
 
-DEPENDENCIES INSTALLED
-======================
+The project was designed to run on:
 
-Core Dependencies:
-• requests           - HTTP library for web requests
-• dnspython          - DNS resolution (Email Tracker)
-• phonenumbers       - Phone number parsing
-• beautifulsoup4     - HTML parsing (Website Copier)
-• lxml               - XML/HTML parsing
+* Windows
+* Linux
+* macOS
 
-Optional Packages:
-• pillow             - Image processing
-• whois              - WHOIS lookups
-• discord.py         - Discord integration
-• selenium           - Browser automation
+Python 3.10 or newer is recommended.
 
+---
 
-AVAILABLE TOOLS
-===============
+# Installation
 
-Tool 01 - IP Grabber Script
-    Create a script that captures IP addresses
+## Step 1 — Download the Files
 
-Tool 02 - Webhook Spammer
-    Send bulk messages to Discord webhooks
+Place both files in the same folder:
 
-Tool 03 - Auto Spammer
-    Automated messaging system
+* `Rbt.py`
+* `setup.py`
 
-Tool 04 - Bot Sender
-    Send messages via Discord bots (under development)
+---
 
-Tool 05 - IP Info
-    Get detailed information about any IP address
+## Step 2 — Run the Setup Script
 
-Tool 06 - Phone Info
-    Look up phone number information
+Open a terminal or command prompt inside the project folder and execute:
 
-Tool 07 - IP Generator
-    Generate valid IP addresses
+```bash
+python setup.py
+```
 
-Tool 08 - Instagram OSINT
-    Gather open-source intelligence on Instagram profiles
+The setup script will:
 
-Tool 09 - Photo Metadata
-    Extract metadata from photos
+* Create a local virtual environment
+* Install all required Python packages
+* Configure the environment automatically
+* Keep dependencies isolated from your system installation
 
-Tool 10 - Username Tracker ⭐ ENHANCED
-    Search for usernames across 35+ platforms
-    Features:
-    ✓ Real-time account detection
-    ✓ Platform validation
-    ✓ Multiple social networks
+---
 
-Tool 11 - Email Tracker ⭐ ENHANCED
-    Check if emails are in databreach incidents
-    Features:
-    ✓ 5 breach databases (HIBP, EmailRep, HackerTarget, Rapid7, Google)
-    ✓ Domain validation
-    ✓ MX record lookup
-    ✓ Security recommendations
-    ✓ Account registration detection
+## Step 3 — Launch the Toolkit
 
-Tool 12 - IP Grabber & Crasher (Discord)
-    Windows-specific tool for Discord
+After installation is complete:
 
-Tool 13 - [Coming Soon]
+### Windows
 
-Tool 14 - [Coming Soon]
+```bash
+.venv\Scripts\python.exe Rbt.py
+```
 
-Tool 15 - Base64 Encoder/Decoder
-    Encode and decode Base64 strings
+or activate the environment first:
 
-Tool 16 - Website Copier ⭐ NEW
-    Copy entire websites locally for offline viewing
-    Features:
-    ✓ Downloads HTML, CSS, JS, images
-    ✓ Auto-rebuilds directory structure
-    ✓ Fixes internal links automatically
-    ✓ Saves to output/ folder
-    ✓ Max 500 files per website
+```bash
+.venv\Scripts\activate
+python Rbt.py
+```
 
-Tool 17 - Website Info Scanner
-    Detailed intelligence on websites
-    Features:
-    ✓ DNS lookup
-    ✓ WHOIS information
-    ✓ Server detection
-    ✓ Technology identification
+### Linux / macOS
 
-Tool 18 - Vulnerability Scanner
-    Scan websites for security vulnerabilities
+```bash
+source .venv/bin/activate
+python3 Rbt.py
+```
 
+---
 
-TROUBLESHOOTING
-================
+# Project Structure
 
-Problem: "Python not found"
-Solution: Install Python from https://www.python.org/downloads/
-          Make sure to CHECK "Add Python to PATH"
+## Main Menu Categories
 
-Problem: "Virtual environment not found"
-Solution: Run setup.bat first to create and activate it
+The toolkit is divided into multiple sections:
 
-Problem: "Module not found" error
-Solution: Delete venv/ folder and run setup.bat again
+* Discord Tools
+* OSINT Tools
+* Utilities
+* Website Tools
 
-Problem: "Connection timeout"
-Solution: Check internet connection, try again later
+Each category contains independent modules accessible from the terminal menu.
 
-Problem: "Website copier not downloading files"
-Solution: Check if website blocks automated access
-          Try a different website for testing
+---
 
+# Tool Breakdown
 
-API NOTES
-=========
+## Discord Tools
 
-Email Tracker uses these free APIs:
-✓ HaveIBeenPwned.com - Breach database
-✓ EmailRep.io - Email reputation
-✓ HackerTarget.com - Leak database
-✓ Rapid7 Sonarss - Compromise detection
-✓ Google Search - Public exposure check
+### 01 — IP Grabber Script Generator
 
-No API keys required - all calls are direct
+Generates configurable scripts intended for webhook-based networking experiments and controlled testing environments.
 
-DISCLAIMER
-==========
+Features:
 
-This tool is for educational and authorized security research only.
+* Python output format
+* Batch output format
+* Webhook configuration
+* Custom filename generation
 
-✗ ILLEGAL USES:
-  • Unauthorized access to systems
-  • Harassment or spam
-  • Data theft
-  • Violation of Terms of Service
+Intended Use:
 
-✓ LEGAL USES:
-  • Personal security research
-  • Website archiving
-  • Breach monitoring
-  • OSINT for authorized purposes
+* Controlled lab testing
+* Webhook integration experiments
+* Educational networking demonstrations
 
+This module should only be used in environments where every participant has explicitly authorized the test.
 
-UPDATES & SUPPORT
-==================
+---
 
-Visit: https://discord.gg/xDgCa7HJV3
-Author: RBT
+### 02 — Webhook Spammer
 
+A threaded webhook stress-testing utility.
 
-VERSION INFO
-=============
+Features:
 
-RBT v1.0
-Release: May 2026
-Status: Active Development
+* Multi-thread support
+* Delay control
+* Connection validation
+* Runtime controls
+* Pause / Resume / Stop functionality
 
+Intended Use:
 
-═══════════════════════════════════════════════════════════════════════════
+* Load testing
+* Webhook reliability checks
+* Local automation testing
 
-Questions? Problems? Join the Discord community above!
+Do not use this module against third-party infrastructure without permission.
 
-═══════════════════════════════════════════════════════════════════════════
+---
+
+### 03 — Auto Spammer
+
+Automated variant of the webhook testing module.
+
+Features:
+
+* Automated payload rotation
+* Threaded delivery
+* Timing controls
+
+Intended strictly for internal testing environments.
+
+---
+
+### 04 — Discord Bot Sender
+
+Basic Discord bot messaging utility.
+
+Features:
+
+* Bot token support
+* Channel targeting
+* Custom message delivery
+
+Useful for:
+
+* Automation testing
+* Bot development
+* API familiarization
+
+---
+
+### 05 — IP Grabber & Crasher (Windows)
+
+shhhhh
+
+No production stability should be expected.
+
+---
+
+# OSINT Tools
+
+## 06 — IP Information Tool
+
+Displays publicly available information associated with an IP address.
+
+Potential Data:
+
+* Country
+* ASN
+* ISP
+* Region
+* Host information
+
+Useful for:
+
+* Infrastructure research
+* Debugging
+* Network analysis
+
+---
+
+## 07 — Phone Information Tool
+
+Performs analysis on phone numbers using public metadata and parsing libraries.
+
+Features:
+
+* International formatting
+* Carrier lookup
+* Country detection
+* Validation checks
+* Timezone information
+
+Useful for:
+
+* Contact verification
+* OSINT workflows
+* Data formatting validation
+
+---
+
+## 08 — IP Generator
+
+Networking utility for generating and analyzing IP ranges.
+
+Features:
+
+* ASN range lookup
+* Public IP retrieval
+* Subnet calculations
+* CIDR analysis
+
+Useful for:
+
+* Network labs
+* Routing analysis
+* Infrastructure studies
+
+---
+
+## 09 — Instagram OSINT
+
+Attempts to collect publicly available profile information from Instagram.
+
+Possible Data:
+
+* Username
+* Biography
+* Followers
+* Profile visibility
+* Public metadata
+
+Important:
+
+Only publicly accessible information should be analyzed.
+
+---
+
+## 10 — Photo Metadata Tool
+
+Extracts metadata from image files.
+
+Features:
+
+* EXIF extraction
+* Camera information
+* GPS coordinate detection
+* Hash generation
+* Image properties
+
+Useful for:
+
+* Digital forensics learning
+* Metadata analysis
+* File inspection
+
+---
+
+## 11 — Username Tracker
+
+Searches for publicly accessible usernames across multiple platforms.
+
+Features:
+
+* Multi-platform checks
+* Public profile discovery
+* URL generation
+* Basic account validation
+
+Useful for:
+
+* Brand monitoring
+* Username availability checks
+* OSINT workflows
+
+---
+
+## 12 — Email Tracker
+
+Performs email formatting and domain analysis.
+
+Features:
+
+* Syntax validation
+* MX record checks
+* Domain inspection
+* Provider identification
+
+Useful for:
+
+* Email verification
+* Infrastructure research
+* Mail configuration checks
+
+---
+
+# Utilities
+
+## 15 — Base64 Encoder
+
+Simple Base64 encoding utility.
+
+Useful for:
+
+* Data conversion
+* API testing
+* Payload formatting
+
+---
+
+# Website Tools
+
+## 16 — Site Cloner
+
+Experimental module currently under development.
+
+Intended for:
+
+* Web structure testing
+* Frontend analysis
+* Local learning environments
+
+---
+
+## 17 — Website Scanner
+
+Website inspection and information gathering utility.
+
+Potential Features:
+
+* Header analysis
+* Technology fingerprinting
+* Basic infrastructure discovery
+
+Still under development.
+
+---
+
+## 18 — Vulnerability Scanner
+
+Experimental security analysis module.
+
+Intended strictly for:
+
+* Authorized testing
+* Local development environments
+* Educational labs
+
+Never scan systems without explicit authorization.
+
+---
+
+# Dependency Information
+
+The setup script automatically installs:
+
+* requests
+* pillow
+* whois
+* discord.py
+* phonenumbers
+* dnspython
+
+Additional optional libraries may be required for some modules depending on platform and future updates.
+
+---
+
+# Important Notes
+
+## Console Behavior
+
+The toolkit uses:
+
+* ANSI terminal coloring
+* ASCII banners
+* Threaded operations
+* External API requests
+* OS-specific behavior
+
+Some modules may behave differently depending on:
+
+* Operating system
+* Installed packages
+* Network configuration
+* Firewall settings
+* API availability
+
+---
+
+# Legal Notice
+
+This project is provided strictly for educational, research, debugging, automation, and authorized security-testing purposes.
+
+By using this software, you agree that:
+
+* You are fully responsible for your own actions
+* You will comply with local laws and regulations
+* You will only interact with systems and services you own or are explicitly authorized to test
+* You understand that misuse may violate laws, platform policies, or terms of service
+
+The author of this project is not responsible for:
+
+* Illegal usage
+* Unauthorized access attempts
+* Abuse of third-party services
+* Damage caused by misuse
+* Account suspensions or bans
+* Data loss
+* Network disruptions
+* Any direct or indirect consequences resulting from the use of this software
+
+Use this project entirely at your own risk.
+
+If you do not understand the legal implications of cybersecurity tooling, do not use this software.
+
+---
+
+# Security & Ethics
+
+A tool is not inherently malicious — misuse is.
+
+Always:
+
+* Obtain permission before testing systems
+* Respect privacy and platform rules
+* Avoid collecting data without consent
+* Use isolated environments whenever possible
+* Keep activities transparent and documented
+
+Responsible use matters.
+
+---
+
+# Final Notes
+
+This toolkit is currently in beta and under active development.
+
+Some modules may:
+
+* Be incomplete
+* Change behavior between updates
+* Produce unstable results
+* Require additional dependencies
+* Stop functioning if external services change APIs
+
+Contributions, improvements, and bug reports are always appreciated.
