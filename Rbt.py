@@ -251,7 +251,7 @@ def logo_banner():
                                                                   {RESET}
 """
     print(banner)
-    print(f"{PURPLE}@RBT - ASCII art by @Loxy0Dev from RedTiger | https://discord.gg/xDgCa7HJV3 | {RED}Beta Version 0.1 - Still Under Development{RESET}")
+    print(f"{PURPLE}@RBT - ASCII art by @Loxy0Dev from RedTiger | Discord Server coming soon... | {RED}Beta Version 0.1 - Still Under Development{RESET}")
     print()
 
 
